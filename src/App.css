@@ -12,5 +12,39 @@ a {
 }
 
 .App {
-  padding: 10px 40px
+  /* padding: 10px 40px */
+}
+
+/* .heading {
+  opacity: 0;
+}
+
+.starContainer {
+  opacity: 0;
+} */
+
+.pink_ghost {
+  /* position: absolute;
+  bottom: 26px;
+  left: 37px;
+  width: 70px;
+  top: 30px;
+  left: 30px;
+  width: 60px;
+  z-index: 1;
+  transform: rotateX(180deg); */
+}
+
+.red_ghost {
+  position: absolute;
+  top: 30%;
+  right: -20px;
+  width: 50px;
+}
+
+.blue_crying_ghost {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 60px;
 }
