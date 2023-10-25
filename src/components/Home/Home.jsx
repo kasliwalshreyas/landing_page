@@ -91,7 +91,7 @@ const Home = () => {
 
 
                 <Stack width={'60%'} alignItems={'center'} justifyContent={'center'}>
-                    <motion.circle
+                    <motion.div
                         initial={{ scale: 0, x: 0, y: 0, rotate: 0 }}
                         animate={{ scale: 1, x: 0, y: 0, rotate: 360 }}
                         transition={{ duration: 1.2, ease: 'easeInOut' }}
@@ -123,7 +123,7 @@ const Home = () => {
                                 <img src={smartPhone_black} alt="smartphone" />
                             </Stack>
                         </Stack>
-                    </motion.circle>
+                    </motion.div>
                 </Stack>
 
             </Stack >

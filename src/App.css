@@ -12,6 +12,8 @@ a {
 }
 
 .App {
+  width: 100vw;
+  height: 100vh;
   /* padding: 10px 40px */
 }
 
@@ -47,4 +49,9 @@ a {
   top: 30px;
   left: 30px;
   width: 60px;
+}
+
+.gallery {
+  display: flex;
+  gap: 20px
 }

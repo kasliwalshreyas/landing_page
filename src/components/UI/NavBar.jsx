@@ -4,7 +4,19 @@ import square_wink from '../../assets/images/square_wink.png';
 const NavBar = () => {
     return (
         <>
-            <Stack direction="row" justifyContent="space-between" alignItems="center" padding="0 60px 10px" margin={'10px 40px'}>
+            <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                padding="0 100px 10px"
+                // margin={'0 40px 10px'}
+                position={'fixed'}
+                top={0}
+                left={0}
+                right={0}
+                backgroundColor={'white'}
+                zIndex={1000}
+            >
                 <img src={square_wink} alt="square_wink" style={{ width: '80px' }} />
                 <Stack direction="row" spacing={8} fontFamily={'catamaran'} fontWeight={500}>
                     <p>Emotions</p>

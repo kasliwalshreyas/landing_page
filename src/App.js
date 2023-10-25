@@ -1,3 +1,4 @@
+import { Stack } from '@mui/material';
 import './App.css';
 import Gallery from './components/Gallery/Gallery';
 import Home from './components/Home/Home';
@@ -10,11 +11,13 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Home />
-      <HomeInfoFooter />
-      <Gallery />
-      <MeetAheadMessage />
-      <SelfImprovementInfo />
+      <Stack padding={'80px 0 0 0'}>
+        <Home />
+        <HomeInfoFooter />
+        <Gallery />
+        <MeetAheadMessage />
+        <SelfImprovementInfo />
+      </Stack>
     </div>
   );
 }
