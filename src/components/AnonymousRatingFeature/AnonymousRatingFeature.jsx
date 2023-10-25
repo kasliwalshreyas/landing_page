@@ -7,7 +7,7 @@ const AnonymousRatingFeature = () => {
         <>
             <Stack style={{ backgroundColor: '#e6f1f7' }} alignItems={'center'} justifyContent={'center'}
                 width={'calc(100%-80px)'} height={'80vh'} padding={'0px 10px 10px 10px'} borderRadius={'32px'}
-                margin={'10px 40px 1000px'}>
+                margin={'10px 40px 100px'}>
                 <p
                     style={{
                         fontFamily: 'catamaran',
