@@ -7,6 +7,10 @@ import MeetAheadMessage from './components/MeetAheadMessage/MeetAheadMessage';
 import SelfImprovementInfo from './components/SelfImprovementInfo/SelfImprovementInfo';
 import NavBar from './components/UI/NavBar';
 import EQInfo from './components/UI/EQInfo';
+import TestFeature from './components/TestFeature/TestFeature';
+import OpenVacanciesFeature from './components/OpenVacanciesFeature/OpenVacanciesFeature';
+import WorkWithUsFeature from './components/WorkWithUsFeature/WorkWithUsFeature';
+import AnonymousRatingFeature from './components/AnonymousRatingFeature/AnonymousRatingFeature';
 
 function App() {
 
@@ -46,9 +50,10 @@ function App() {
         <MeetAheadMessage />
         <SelfImprovementInfo />
         <EQInfo info={EQInfo2} />
-
-
-
+        <AnonymousRatingFeature />
+        <TestFeature />
+        <WorkWithUsFeature />
+        <OpenVacanciesFeature />
       </Stack>
     </div>
   );
