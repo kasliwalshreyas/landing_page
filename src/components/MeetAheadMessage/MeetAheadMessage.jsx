@@ -10,7 +10,7 @@ const MeetAheadMessage = () => {
             <Stack
                 direction={'row'} style={{ backgroundColor: '#fef6f1' }}
                 height={'70vh'} padding={'100px 10px 10px 10px'} borderRadius={'32px'}
-                margin={'200px 40px 1000px'}
+                margin={'200px 40px 100px'}
                 position={'relative'}
             >
                 <img
