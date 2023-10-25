@@ -78,3 +78,50 @@ a {
   background: #6542f1;
   border-radius: 8px;
 }
+
+/* backgroundColor: '#fefbeb',
+borderRadius: '16px',
+padding: '30px 30px 30px 30px',
+margin: '30px 30px 30px 30px',
+width: 'fit-content',
+height: 'fit-content', */
+
+.job-card {
+  background-color: #fefbeb;
+  border-radius: 16px;
+  padding: 30px 30px 30px 30px;
+  margin: 30px 30px 30px 30px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.job-card:hover {
+  background-color: #ffefd5;
+}
+
+/* display: 'none',
+marginTop: "30px",
+borderRadius: '32px',
+backgroundColor: 'black',
+fontFamily: 'catamaran',
+fontWeight: 500,
+fontSize: '12px',
+color: 'white',
+padding: '12px 20px' */
+
+.detailButton {
+  display: none;
+  margin-top: 30px;
+  border-radius: 32px;
+  background-color: black;
+  font-family: catamaran;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  padding: 12px 20px;
+  width: fit-content;
+}
+
+.job-card:hover .detailButton {
+  display: block;
+}

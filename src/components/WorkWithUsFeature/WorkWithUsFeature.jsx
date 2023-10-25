@@ -50,7 +50,7 @@ const WorkWithUsFeature = () => {
             <Stack backgroundColor='#f3f1ff'
                 justifyContent={'flex-end'}
                 width={'calc(100%-80px)'} height={'100vh'} padding={'40px 40px 0px 40px'} borderRadius={'32px'}
-                margin={'10px 40px 1000px'}
+                margin={'10px 40px 100px'}
                 spacing={'40px'}
             >
 
