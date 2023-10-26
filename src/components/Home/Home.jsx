@@ -13,10 +13,7 @@ const Home = () => {
     const landingRef = useRef(null);
     const ref = useRef(null);
 
-    useEffect(() => {
-        animate();
-    }, [])
-
+    const inView = useInView(landingRef);
 
 
     return (
@@ -31,8 +28,8 @@ const Home = () => {
                             x: -100
                         }}
                         animate={{
-                            opacity: 1,
-                            x: 0,
+                            opacity: inView ? 1 : 0,
+                            x: inView ? 0 : -100
                         }}
                         transition={{
                             type: "tween",
@@ -64,7 +61,7 @@ const Home = () => {
                                         <motion.div
                                             initial={{ opacity: 0 }}
                                             animate={{
-                                                opacity: 1,
+                                                opacity: inView ? 1 : 0,
                                             }}
                                             transition={{
                                                 delay: 0.5 + item * 0.1,
@@ -87,8 +84,18 @@ const Home = () => {
 
                 <Stack width={'60%'} alignItems={'center'} justifyContent={'center'}>
                     <motion.div
-                        initial={{ scale: 0, x: 0, y: 0, rotate: 0 }}
-                        animate={{ scale: 1, x: 0, y: 0, rotate: 360 }}
+                        initial={{
+                            scale: 0,
+                            x: 0,
+                            y: 0,
+                            rotate: 0
+                        }}
+                        animate={{
+                            scale: inView ? 1 : 0,
+                            x: inView ? 0 : 0,
+                            y: inView ? 0 : 0,
+                            rotate: inView ? 360 : 0
+                        }}
                         transition={{ duration: 1.2, ease: 'easeInOut' }}
                     >
                         <Stack position='relative' width={'450px'} height={'450px'} borderRadius={'50%'} border={'dashed white'} alignItems={'center'} justifyContent={'center'}>

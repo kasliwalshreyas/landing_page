@@ -19,7 +19,8 @@ const data = [
         better understand why you do things the
         way you do.
         `
-    }, {
+    },
+    {
         heading: `Play and grow together with
         others on the same journey`,
         description: `Ahead feels like a game, not like a chore.
@@ -52,7 +53,8 @@ const WorkWithUsFeature = () => {
 
     return (
         <>
-            <Stack backgroundColor='#f3f1ff'
+            <Stack
+                backgroundColor='#f3f1ff'
                 justifyContent={'flex-end'}
                 width={'calc(100%-80px)'}
                 height={'100vh'}
@@ -86,8 +88,6 @@ const WorkWithUsFeature = () => {
                             velocity: 2,
                         }}
 
-
-
                         style={{
                             fontSize: '50px',
                             lineHeight: '100%',
@@ -99,11 +99,11 @@ const WorkWithUsFeature = () => {
                     <motion.h1
                         initial={{
                             opacity: 0,
-                            x: 600,
+                            x: 150,
                         }}
                         animate={{
                             opacity: inView ? 1 : 0,
-                            x: inView ? 0 : 600,
+                            x: inView ? 0 : 150,
                         }}
                         transition={{
                             type: 'spring',
@@ -227,14 +227,9 @@ const WorkWithUsFeature = () => {
                         </Stack>
                     </Stack>
                     <Stack
-                        spacing={5}
-                        width={'500px'}
-                        // height={'100%'}
-                        maxHeight={'100%'}
-                        padding={'0 0 100px 0'}
                         className="pretty-scrollbar"
-                        justifyContent={'center'}
-                        alignItems={'center'}
+                        padding={'10px 100px 100px 0px'}
+                        spacing={5}
                     >
                         {
                             data.map((item, index) => {

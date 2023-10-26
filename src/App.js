@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Stack padding={'80px 0 0 0'}>
+      <Stack padding={'80px 0px 0px 0px'} width={'100vw'} maxWidth={'100vw'}>
         <Home />
         <EQInfo info={EQInfo1} />
         <Gallery />
@@ -54,7 +54,7 @@ function App() {
         <WorkWithUsFeature />
         <OpenVacanciesFeature />
       </Stack>
-    </div>
+    </div >
   );
 }
 
