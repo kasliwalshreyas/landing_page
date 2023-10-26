@@ -3,17 +3,36 @@ import purple_ghost from '../../assets/images/purple_ghost.png';
 import sun_image from '../../assets/images/sun_image_2.png';
 import flower_image from '../../assets/images/flower_image_2.png';
 import green_leaf_image from '../../assets/images/green_leaf_image_2.png';
+import { motion, useInView, useScroll } from "framer-motion";
+import { useRef } from "react";
 
 const MeetAheadMessage = () => {
+
+    const targetRef = useRef(null);
+    const inView = useInView(targetRef);
+    const { scrollYProgress } = useScroll()
+
+    console.log(scrollYProgress);
+
     return (
         <>
             <Stack
+                ref={targetRef}
                 direction={'row'} style={{ backgroundColor: '#fef6f1' }}
                 height={'70vh'} padding={'100px 10px 10px 10px'} borderRadius={'32px'}
                 margin={'200px 40px 100px'}
                 position={'relative'}
             >
-                <img
+                <motion.img
+                    animate={{
+                        // rotate: inView ? scrollYProgress : 0,
+                    }}
+                    transition={{
+                        // duration: 2,
+                        // repeat: 3,
+                        // repeatType: 'loop',
+                        // ease: 'linear',
+                    }}
                     src={flower_image}
                     alt="flower_image"
                     style={{
@@ -22,6 +41,7 @@ const MeetAheadMessage = () => {
                         right: '100px',
                         width: '90px',
                         height: '90px',
+                        // scaleX: scrollYProgress,
                     }}
                 />
                 <img
@@ -44,8 +64,35 @@ const MeetAheadMessage = () => {
                     spacing={2}
                     padding={'0 0 0 30px'}
                 >
-                    <p style={{ fontFamily: 'catamaran', fontWeight: 500, paddingLeft: '6px' }}>Built out of frustration</p>
-                    <h1 style={{ fontSize: '50px', lineHeight: '100%', wordWrap: 'wrap' }}>Meet the ahead App</h1>
+                    <motion.div
+
+                        initial={{
+                            opacity: 0,
+                            x: -600,
+                            scaleY: 0.5,
+                            // gap: '0.5rem',
+                        }}
+                        animate={{
+                            opacity: inView ? 1 : 0,
+                            x: inView ? 0 : -600,
+                            scaleY: inView ? 1 : 0.5,
+                        }}
+                        transition={{
+                            delay: 0,
+                            type: "spring",
+                            stiffness: 50,
+                            damping: 10,
+                            ease: 'easeInOut',
+                        }}
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '1rem',
+                        }}
+                    >
+                        <p style={{ fontFamily: 'catamaran', fontWeight: 500, paddingLeft: '6px' }}>Built out of frustration</p>
+                        <h1 style={{ fontSize: '50px', lineHeight: '100%', wordWrap: 'wrap' }}>Meet the ahead App</h1>
+                    </motion.div>
                     <div style={{
                         position: 'absolute',
                         top: '30%',
@@ -69,7 +116,23 @@ const MeetAheadMessage = () => {
                                 backgroundColor: '#ffffff',
                             }}
                         >
-                            <img
+                            <motion.img
+                                initial={{
+                                    y: 100,
+                                    scale: 0.5,
+                                }}
+                                animate={{
+                                    y: inView ? 0 : 100,
+                                    scale: inView ? 1 : 0.5,
+                                    when: "afterChildren"
+                                }}
+                                transition={{
+                                    delay: 1.5,
+                                    type: "spring",
+                                    stiffness: 130,
+                                    velocity: 2,
+                                }}
+
                                 style={{
                                     position: 'absolute',
                                     top: 0,
@@ -77,16 +140,56 @@ const MeetAheadMessage = () => {
                                 }}
 
                                 src={sun_image}
-                                alt="sun_image" />
-                            <img src={purple_ghost} alt="purple_ghost" />
+                                alt="sun_image"
+                            />
+                            <motion.img
+                                initial={{
+                                    rotate: 60,
+                                    scale: 0.5,
+                                }}
+                                animate={{
+                                    rotate: inView ? 0 : 60,
+                                    scale: inView ? 1 : 0.5,
+                                    when: "afterChildren"
+                                }}
+                                transition={{
+                                    delay: 1,
+                                    duration: 1,
+                                }}
+
+                                src={purple_ghost}
+                                alt="purple_ghost"
+                            />
                         </div>
                     </div>
                 </Stack>
-                <Stack
-                    width={'50%'}
-                    paddingLeft={20}
-                    spacing={3}
-                    justifyContent={'center'}
+                <motion.div
+                    initial={{
+                        originX: 0,
+                        scaleX: 0.3,
+                        scaleY: 0.3,
+
+                    }}
+                    animate={{
+                        originX: 0,
+                        scaleX: inView ? 1 : 0.3,
+                        scaleY: inView ? 1 : 0.3,
+                    }}
+                    transition={{
+                        delay: 1,
+                        // duration: 1,
+                        // bounce: 10,
+                        type: "spring",
+                    }}
+
+                    style={{
+                        width: '40%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        gap: '3rem',
+                        paddingLeft: '20px',
+                    }}
 
                 >
                     <p
@@ -114,7 +217,7 @@ const MeetAheadMessage = () => {
                         Think of it as a pocket cheerleader towards a
                         better, more fulfilling.
                     </p>
-                </Stack>
+                </motion.div>
             </Stack >
         </>
     );

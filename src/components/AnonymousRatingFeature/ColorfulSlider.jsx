@@ -5,10 +5,10 @@ const ColorfulSlider = () => {
         <>
             <Stack
                 style={{ backgroundColor: '#ffffff' }}
-                width={'800px'}
-                height={'220px'}
-                borderRadius={'32px'}
-                padding={'0px 10px 10px 10px'}
+                width={'42rem'}
+                height={'15rem'}
+                borderRadius={'2rem'}
+                padding={'0px 10px 0px 10px'}
                 justifyContent={'center'}
                 alignItems={'center'}
                 position={'relative'}
@@ -21,7 +21,7 @@ const ColorfulSlider = () => {
                         // border: 'solid #6341ef 9px',
                         borderRadius: '50%',
                         position: 'absolute',
-                        left: '40px',
+                        left: '2.5rem',
                     }}
                 >
                 </div>
@@ -34,7 +34,7 @@ const ColorfulSlider = () => {
                         backgroundColor: '#6341ef',
                         position: 'absolute',
                         left: '-15px',
-                        top: '30px',
+                        top: '2.5rem',
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -57,7 +57,7 @@ const ColorfulSlider = () => {
                         // border: 'solid #6341ef 9px',
                         borderRadius: '50%',
                         position: 'absolute',
-                        left: '250px',
+                        left: '12rem',
                     }}
                 >
                 </div>
@@ -69,8 +69,8 @@ const ColorfulSlider = () => {
                         borderRadius: '10px',
                         backgroundColor: '#3fc4fa',
                         position: 'absolute',
-                        left: '250px',
-                        bottom: '40px',
+                        left: '12rem',
+                        bottom: '2.5rem',
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -93,7 +93,7 @@ const ColorfulSlider = () => {
                         // border: 'solid #6341ef 9px',
                         borderRadius: '50%',
                         position: 'absolute',
-                        right: '300px',
+                        right: '17rem',
                     }}
                 >
                 </div>
@@ -105,8 +105,8 @@ const ColorfulSlider = () => {
                         borderRadius: '10px',
                         backgroundColor: '#fdb338',
                         position: 'absolute',
-                        right: '160px',
-                        top: '30px',
+                        right: '8rem',
+                        top: '2.5rem',
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -129,7 +129,7 @@ const ColorfulSlider = () => {
                         // border: 'solid #6341ef 9px',
                         borderRadius: '50%',
                         position: 'absolute',
-                        right: '40px',
+                        right: '2.5rem',
                     }}
                 >
                 </div>
@@ -141,8 +141,8 @@ const ColorfulSlider = () => {
                         borderRadius: '10px',
                         backgroundColor: '#58c896',
                         position: 'absolute',
-                        right: '-110px',
-                        bottom: '40px',
+                        right: '-6.5rem',
+                        bottom: '2.5rem',
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',

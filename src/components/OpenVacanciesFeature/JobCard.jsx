@@ -36,7 +36,7 @@ const JobCard = ({ item }) => {
                     <li>{item.salary}</li>
                 </ul>
 
-                <button variant="contained" className="detailButton" disableElevation>
+                <button variant="contained" className="detailButton">
                     See details
                 </button>
 

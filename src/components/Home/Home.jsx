@@ -5,31 +5,18 @@ import smartPhone_black from '../../assets/images/smartPhone_black.svg';
 import pink_ghost from '../../assets/images/pink_ghost.png';
 import red_ghost from '../../assets/images/red_ghost.png';
 import blue_crying_ghost from '../../assets/images/blue_crying_ghost.png';
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { motion, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { animate, motion, stagger, useInView } from "framer-motion";
 
 
 const Home = () => {
     const landingRef = useRef(null);
     const ref = useRef(null);
-    const isInView = useInView(ref);
 
-    // useLayoutEffect(() => {
+    useEffect(() => {
+        animate();
+    }, [])
 
-    //     const ctx = gsap.context(() => {
-    //         const animation1 = gsap.to(".heading", { opacity: 1, duration: 3, ease: "power1.out" });
-    //         // const animation2 = gsap.to(".heading", { opacity: 1, delay: 1, duration: 2, ease: "power2.out" });
-    //         const animation2 = gsap.to(".starContainer", { opacity: 1, delay: 1, duration: 1, ease: "none" });
-
-    //         const animation3 = gsap.fromTo(".pink_ghost", { x: 0, y: 0, duration: 4, ease: "power1.out" }, { x: 10, y: 100, rotation: 180, duration: 4, ease: "power5.out" });
-
-    //     }, landingRef);
-
-    //     return () => {
-    //         ctx.revert();
-    //     }
-    // }, []);
 
 
     return (
@@ -39,14 +26,18 @@ const Home = () => {
                 ref={landingRef} margin={'10px 40px'}>
                 <Stack width={'40%'} padding={'50px 0'} spacing={5}>
                     <motion.div
-                        initial={{ opacity: 0, x: -100 }}
+                        initial={{
+                            opacity: 0,
+                            x: -100
+                        }}
                         animate={{
-                            // opacity: isInView ? 1 : 0,
-                            // x: isInView ? 0 : -100,
                             opacity: 1,
                             x: 0,
                         }}
-                        transition={{ duration: 1 }}
+                        transition={{
+                            type: "tween",
+                            duration: 0.7,
+                        }}
                         style={{ position: "relative", left: 0 }}
                     >
                         <Stack spacing={3} className="heading" >
@@ -64,25 +55,29 @@ const Home = () => {
                             </Stack>
                         </Button>
                         <Stack>
-                            <motion.div
-                                initial={{ opacity: 0, x: 0 }}
-                                animate={{
-                                    // opacity: isInView ? 1 : 0,
-                                    // x: isInView ? 0 : -100,
-                                    opacity: 1,
-                                    x: 0,
-                                }}
-                                transition={{ delay: 1, duration: 2 }}
-                                style={{ position: "relative", left: 0 }}
-                            >
-                                <Stack direction={'row'} spacing={1} className="starContainer">
-                                    <StarIcon color='golden' />
-                                    <StarIcon color='golden' />
-                                    <StarIcon color='golden' />
-                                    <StarIcon color='golden' />
-                                    <StarIcon color='golden' />
-                                </Stack>
-                            </motion.div>
+                            <Stack direction={'row'} spacing={1}>
+                                {/* refactor using staggerChildren Method */}
+
+
+                                {[0, 1, 2, 3, 4].map((item, index) => {
+                                    return (
+                                        <motion.div
+                                            initial={{ opacity: 0 }}
+                                            animate={{
+                                                opacity: 1,
+                                            }}
+                                            transition={{
+                                                delay: 0.5 + item * 0.1,
+                                                duration: 0.5,
+                                            }}
+                                            style={{ display: "flex", gap: "1rem", position: "relative", left: 0 }}
+                                        >
+                                            <StarIcon key={index} color="golden" />
+                                        </motion.div>
+                                    )
+                                })}
+
+                            </Stack>
                             <p style={{ display: 'inline-block', fontSize: '20px' }}>100+ AppStore reviews</p>
 
                         </Stack>
