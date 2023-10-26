@@ -44,7 +44,6 @@ function App() {
       <NavBar />
       <Stack padding={'80px 0 0 0'}>
         <Home />
-        {/* <HomeInfoFooter /> */}
         <EQInfo info={EQInfo1} />
         <Gallery />
         <MeetAheadMessage />

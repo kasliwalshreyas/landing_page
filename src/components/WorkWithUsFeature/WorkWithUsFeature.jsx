@@ -1,60 +1,68 @@
 import { Stack, decomposeColor } from "@mui/material";
 import work_with_us_ghost from '../../assets/images/work_with_us_ghost.png';
 import QualityListingCards from "./QualityListingCards";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
+const data = [
+    {
+        heading: `Power through, even when the
+        going gets tough`,
+        description: `We help you spot and work around
+        whatever stands in the way, be it bad
+        habits, fears. etc.`
+    },
+    {
+        heading: `Learn more about who you are
+        and where you want to go`,
+        description: `We ask the right questions to help you
+        better understand why you do things the
+        way you do.
+        `
+    }, {
+        heading: `Play and grow together with
+        others on the same journey`,
+        description: `Ahead feels like a game, not like a chore.
+        See yourself grow every day towards
+        achieving your goals!`
+    },
+    {
+        heading: `Master how to make it happen
+        in real life`,
+        description: `We support you towards ninja-level skills
+        with sleek tools such os dry-runs, quizzes,
+        and flashcards.`
+    },
+    {
+        heading: `Learn about practical skills that
+        you can actually use in real life`,
+        description: `We teach you smart psychological
+        techniques and habit-forming strategies
+        that are easy to apply.`
+    }
+
+]
 
 const WorkWithUsFeature = () => {
 
-    const data = [
-        {
-            heading: `Power through, even when the
-            going gets tough`,
-            description: `We help you spot and work around
-            whatever stands in the way, be it bad
-            habits, fears. etc.`
-        },
-        {
-            heading: `Learn more about who you are
-            and where you want to go`,
-            description: `We ask the right questions to help you
-            better understand why you do things the
-            way you do.
-            `
-        }, {
-            heading: `Play and grow together with
-            others on the same journey`,
-            description: `Ahead feels like a game, not like a chore.
-            See yourself grow every day towards
-            achieving your goals!`
-        },
-        {
-            heading: `Master how to make it happen
-            in real life`,
-            description: `We support you towards ninja-level skills
-            with sleek tools such os dry-runs, quizzes,
-            and flashcards.`
-        },
-        {
-            heading: `Learn about practical skills that
-            you can actually use in real life`,
-            description: `We teach you smart psychological
-            techniques and habit-forming strategies
-            that are easy to apply.`
-        }
-
-    ]
-
+    const targetRef = useRef(null);
+    const inView = useInView(targetRef);
+    const imageRef = useRef(null);
+    const imageInView = useInView(imageRef);
 
     return (
         <>
             <Stack backgroundColor='#f3f1ff'
                 justifyContent={'flex-end'}
-                width={'calc(100%-80px)'} height={'100vh'} padding={'40px 40px 0px 40px'} borderRadius={'32px'}
+                width={'calc(100%-80px)'}
+                height={'100vh'}
+                padding={'40px 40px 0px 40px'}
+                borderRadius={'32px'}
                 margin={'10px 40px 100px'}
                 spacing={'40px'}
             >
-
                 <Stack
+                    ref={targetRef}
                     direction={'row'}
                     alignItems={'center'}
                     justifyContent={'space-between'}
@@ -62,7 +70,24 @@ const WorkWithUsFeature = () => {
                     width={'100%'}
                     height={'10%'}
                 >
-                    <h1
+                    <motion.h1
+                        initial={{
+                            opacity: 0,
+                            x: -600,
+                        }}
+                        animate={{
+                            opacity: inView ? 1 : 0,
+                            x: inView ? 0 : -600,
+                        }}
+                        transition={{
+                            type: 'spring',
+                            stiffness: 100,
+                            damping: 15,
+                            velocity: 2,
+                        }}
+
+
+
                         style={{
                             fontSize: '50px',
                             lineHeight: '100%',
@@ -70,8 +95,23 @@ const WorkWithUsFeature = () => {
                         }}
                     >
                         Work with us
-                    </h1>
-                    <h1
+                    </motion.h1>
+                    <motion.h1
+                        initial={{
+                            opacity: 0,
+                            x: 600,
+                        }}
+                        animate={{
+                            opacity: inView ? 1 : 0,
+                            x: inView ? 0 : 600,
+                        }}
+                        transition={{
+                            type: 'spring',
+                            stiffness: 100,
+                            damping: 15,
+                            velocity: 2,
+                        }}
+
                         style={{
                             fontSize: '50px',
                             lineHeight: '100%',
@@ -81,7 +121,7 @@ const WorkWithUsFeature = () => {
                         }}
                     >
                         ahead
-                    </h1>
+                    </motion.h1>
                 </Stack>
                 <Stack
                     direction={'row'}
@@ -94,12 +134,28 @@ const WorkWithUsFeature = () => {
                         width={'600px'}
                         padding={'0'}
                         height={'400px'}
+                        ref={imageRef}
                     >
                         <Stack
                             margin={'30px 50px 30px 30px'}
                             spacing={1}
                         >
-                            <img
+                            <motion.img
+                                initial={{
+                                    rotate: 40,
+                                    scale: 0.5,
+                                    origin: 0,
+                                }}
+                                animate={{
+                                    rotate: imageInView ? [40, 0, -40, 0] : 40,
+                                    scale: imageInView ? [0.5, 1, 0.5, 1] : 0.5,
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    ease: 'easeInOut',
+
+                                }}
+
                                 style={{
                                     width: '60px',
                                 }}

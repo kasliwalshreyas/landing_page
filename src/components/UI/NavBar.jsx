@@ -8,7 +8,7 @@ const NavBar = () => {
                 direction="row"
                 justifyContent="space-between"
                 alignItems="center"
-                padding="0 100px 10px"
+                padding="10px 100px 10px"
                 // margin={'0 40px 10px'}
                 position={'fixed'}
                 top={0}
@@ -16,6 +16,7 @@ const NavBar = () => {
                 right={0}
                 backgroundColor={'white'}
                 zIndex={1000}
+
             >
                 <img src={square_wink} alt="square_wink" style={{ width: '80px' }} />
                 <Stack direction="row" spacing={8} fontFamily={'catamaran'} fontWeight={500}>

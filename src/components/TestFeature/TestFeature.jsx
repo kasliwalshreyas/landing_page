@@ -1,6 +1,12 @@
 import { Button, Stack } from "@mui/material";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const TestFeature = () => {
+
+    const targetRef = useRef(null);
+    const inView = useInView(targetRef);
+
     return (
         <>
             <Stack
@@ -51,23 +57,59 @@ const TestFeature = () => {
                 >
                     with love, Ahead team
                 </p>
-
-                <Button variant="contained" disableElevation style={{
-                    marginTop: "30px", borderRadius: '32px', backgroundColor: 'black', fontFamily: 'catamaran', fontWeight: 500, fontSize: '12px', color: 'white', padding: '12px 20px'
-                }}>
-                    Start a test
-                </Button>
-                <p
+                <motion.div
+                    initial={{
+                        y: 25,
+                    }}
+                    animate={{
+                        y: inView ? 0 : 25,
+                    }}
+                    transition={{
+                        delay: 0.5,
+                        duration: 0.5
+                    }}
                     style={{
-                        fontFamily: 'catamaran',
-                        fontWeight: 1000,
-                        fontSize: '12px',
-                        marginTop: '10px',
-                        opacity: '0.5',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                     }}
                 >
-                    Take only 5 minutes
-                </p>
+
+                    <motion.div
+                        ref={targetRef}
+                        initial={{
+                            scale: 0.5,
+                            // y: 25,
+                            opacity: 0
+                        }}
+                        animate={{
+                            scale: inView ? 1 : 0.5,
+                            // y: inView ? [25, 25, 25, 25, 15, 0] : 25,
+                            opacity: inView ? 1 : 0
+                        }}
+                        transition={{ duration: 1.5, type: 'spring' }}
+                    >
+                        <Button
+                            ref={targetRef}
+                            variant="contained" disableElevation style={{
+                                marginTop: "30px", borderRadius: '32px', backgroundColor: 'black', fontFamily: 'catamaran', fontWeight: 500, fontSize: '12px', color: 'white', padding: '12px 20px'
+                            }}>
+                            Start a test
+                        </Button>
+                    </motion.div>
+                    <p
+                        style={{
+                            fontFamily: 'catamaran',
+                            fontWeight: 1000,
+                            fontSize: '12px',
+                            marginTop: '10px',
+                            opacity: '0.5',
+                        }}
+                    >
+                        Take only 5 minutes
+                    </p>
+                </motion.div>
             </Stack >
         </>
     );

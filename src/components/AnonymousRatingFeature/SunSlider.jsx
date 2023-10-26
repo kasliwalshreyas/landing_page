@@ -1,18 +1,24 @@
+import { useRef } from "react";
 import sun_mark_1 from "../../assets/images/sun_mark_1.png";
 import sun_mark_2 from "../../assets/images/sun_mark_2.png";
 import sun_mark_3 from "../../assets/images/sun_mark_3.png";
+import { motion, useInView } from "framer-motion";
+
+const marks = [
+    "Answer questions on your social skills",
+    "Let others anonymously answer the same questions about you",
+    "Find out where you and others see things the some way - and where not!"
+]
 
 const SunSlider = () => {
 
-    const marks = [
-        "Answer questions on your social skills",
-        "Let others anonymously answer the same questions about you",
-        "Find out where you and others see things the some way - and where not!"
-    ]
+    const targetRef = useRef();
+    const inView = useInView(targetRef);
 
     return (
         <>
             <div
+                ref={targetRef}
                 style={{
                     position: 'relative',
                     width: '62.5rem',
@@ -22,7 +28,21 @@ const SunSlider = () => {
                     margin: '50px 0px 150px',
                 }}
             >
-                <div
+                <motion.div
+                    initial={{
+                        opacity: 0,
+                        scale: 0,
+                    }}
+                    animate={{
+                        opacity: inView ? 1 : 0,
+                        scale: inView ? 1 : 0,
+                    }}
+                    transition={{
+                        duration: 1,
+                        ease: 'easeInOut',
+                    }}
+
+
                     style={{
                         display: 'flex',
                         justifyContent: 'center',
@@ -54,8 +74,21 @@ const SunSlider = () => {
                     >
                         {marks[0]}
                     </p>
-                </div>
-                <div
+                </motion.div>
+                <motion.div
+                    initial={{
+                        opacity: 0,
+                        scale: 0,
+                    }}
+                    animate={{
+                        opacity: inView ? 1 : 0,
+                        scale: inView ? 1 : 0,
+                    }}
+                    transition={{
+                        duration: 1,
+                        ease: 'easeInOut',
+                    }}
+
                     style={{
                         display: 'flex',
                         justifyContent: 'center',
@@ -91,8 +124,20 @@ const SunSlider = () => {
                     >
                         {marks[1]}
                     </p>
-                </div>
-                <div
+                </motion.div>
+                <motion.div
+                    initial={{
+                        opacity: 0,
+                        scale: 0,
+                    }}
+                    animate={{
+                        opacity: inView ? 1 : 0,
+                        scale: inView ? 1 : 0,
+                    }}
+                    transition={{
+                        duration: 1,
+                        ease: 'easeInOut',
+                    }}
                     style={{
                         display: 'flex',
                         justifyContent: 'center',
@@ -130,7 +175,7 @@ const SunSlider = () => {
                     >
                         {marks[2]}
                     </p>
-                </div>
+                </motion.div>
                 <div
                     style={{
                         // height: 5,
