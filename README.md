@@ -1,5 +1,7 @@
 # Landing Page using ReactJs and Framer Motion
 
+[Live Website](https://landingpage-spk.netlify.app/)
+
 ## Goal
 
 The main purpose of this project is to create an elegant, animated landing page that effectively showcases my skills using ReactJS and Framer Motion. 
