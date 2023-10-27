@@ -39,7 +39,7 @@ const OpenVacanciesFeature = () => {
                 margin={'0px 40px 0px'}
             >
                 <Stack
-                    minHeight={'370px'}
+                    minHeight={'400px'}
                     ref={targetRef}
                 >
                     <motion.h1
@@ -58,7 +58,7 @@ const OpenVacanciesFeature = () => {
                             velocity: 2,
                         }}
                         style={{
-                            fontSize: '50px',
+                            fontSize: '3.5rem',
                             lineHeight: '100%',
                             wordWrap: 'wrap'
                         }}
@@ -67,7 +67,7 @@ const OpenVacanciesFeature = () => {
                     </motion.h1>
                     <Stack
                         direction={'row'}
-                        justifyContent={'space-between'}
+                        gap={'3rem'}
                     >
                         {
                             jobList.map((item, index) => {

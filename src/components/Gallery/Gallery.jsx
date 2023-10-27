@@ -15,13 +15,26 @@ const Gallery = () => {
     });
 
     // console.log(scrollYProgress);
-    const x = useTransform(scrollYProgress, [0, 8], ['1%', '100%']);
+    // const x = useTransform(scrollYProgress, [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0], [0, -200, -300, -350, -500, -500, -700, -800, -900, -1000, - 1100]);
+    const x = useTransform(scrollYProgress, [1, 0.1], ["0px", "-1100px"], { clamp: false });
+
+    // console.log(scrollYProgress);
+    // console.log(x);
 
     const inView = useInView(headingRef);
 
+
+
     return (
         <>
-            <Stack padding={'0 0 100px 0'} ref={targetRef} >
+            <div
+                ref={targetRef}
+                style={{
+                    padding: '0 0 100px 0',
+                    position: 'relative',
+                    overflow: 'hidden',
+                }}
+            >
                 <motion.h1
                     ref={headingRef}
                     initial={{
@@ -41,32 +54,34 @@ const Gallery = () => {
                 >
                     Does this sound familiar...
                 </motion.h1>
-                <div style={{ position: 'sticky', top: 0, height: '200px' }}>
-                    <Stack
-                        direction={'row'}
-                        spacing={7}
-                        overflow={'hidden'}
-                        // position={'sticky'}
-                        // top={0}
-                        alignItems={'center'}
-                        justifyContent={'center'}
-                    >
-                        <motion.div
-                            style={{ x }}
-                            className="gallery"
-                        >
-                            <Cards bgColor={'#daf3ff'} />
-                            <Cards bgColor={'#eeebfe'} />
-                            <Cards bgColor={'#6341ef'} />
-                            <Cards bgColor={'#ffefd7'} />
-                            <Cards bgColor={'#daf3ff'} />
-                            <Cards bgColor={'#eeebfe'} />
-                            <Cards bgColor={'#6341ef'} />
-                            <Cards bgColor={'#ffefd7'} />
-                        </motion.div>
-                    </Stack>
-                </div>
-            </Stack >
+                <motion.div
+                    transition={{
+                        type: 'spring',
+                        duration: 8,
+                        damping: 100,
+                        ease: "easeInOut"
+                    }}
+                    style={{
+                        x,
+                        minWidth: '100%',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        gap: '3rem',
+                        position: 'sticky',
+                        top: 0,
+                        padding: '0 50px',
+                    }}
+                    className="gallery"
+
+                >
+                    <Cards bgColor={'#daf3ff'} />
+                    <Cards bgColor={'#eeebfe'} />
+                    <Cards bgColor={'#6341ef'} />
+                    <Cards bgColor={'#ffefd7'} />
+                    <Cards bgColor={'#daf3ff'} />
+                    <Cards bgColor={'#eeebfe'} />
+                </motion.div>
+            </div>
         </>
     );
 }

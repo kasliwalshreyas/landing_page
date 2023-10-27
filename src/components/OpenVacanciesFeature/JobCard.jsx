@@ -18,7 +18,7 @@ const JobCard = ({ item }) => {
                     height: "8rem",
                 }}
                 whileHover={{
-                    height: "12rem",
+                    height: "12.5rem",
                 }}
                 transition={{
                     type: 'tween',
@@ -29,7 +29,7 @@ const JobCard = ({ item }) => {
             >
                 <p
                     style={{
-                        fontSize: '24px',
+                        fontSize: '1.5rem',
                         lineHeight: '100%',
                         wordWrap: 'wrap',
                         fontWeight: 'bold',
@@ -39,7 +39,7 @@ const JobCard = ({ item }) => {
                 </p>
                 <ul
                     style={{
-                        fontSize: '16px',
+                        fontSize: '1rem',
                         wordWrap: 'wrap',
                         fontWeight: 600,
                         marginLeft: '16px',

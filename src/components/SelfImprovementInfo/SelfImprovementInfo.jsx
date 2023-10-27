@@ -2,6 +2,7 @@ import { Stack, Step, StepLabel, Stepper } from "@mui/material";
 import blue_crying_ghost from '../../assets/images/blue_crying_ghost.png';
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import StepperProgressBar from "./StepperProgressBar";
 
 const steps = [
     {
@@ -13,7 +14,7 @@ const steps = [
         description: "And bad behaviors die hard. Fortunately, we give you great, science-backed techniques to use."
     },
     {
-        heading: "You and your motivation don't have along-term relationship.",
+        heading: "You and your motivation don't have a long-term relationship.",
         description: "Luckily, we can proactively prepare you for the marathon, not just the race. Effective, memorable exercises will help you stick to your goals."
     }, {
         heading: "Books just don't offer practical solutions.",
@@ -35,7 +36,7 @@ const SelfImprovementInfo = () => {
             <Stack
                 ref={targetRef}
                 padding="100px 60px 100px"
-                // height={'200px'}
+                minHeight={'80vh'}
                 spacing={5}
                 justifyContent={'space-around'}
                 margin={'10px 40px 100px'}
@@ -98,36 +99,40 @@ const SelfImprovementInfo = () => {
                 <Stack
                     justifyContent={'center'}
                     alignItems={'center'}
-
+                    overflow={'scroll'}
+                    maxHeight={'450px'}
                 >
-                    <Stack
-                        maxWidth={'900px'}
-                    >
-                        <Stepper activeStep={6} orientation="vertical">
-                            {steps.map((step, index) => (
-                                <Step key={index}>
-                                    <StepLabel
-                                        optional={
-                                            <p style={{
-                                                margin: '15px 0 20px',
-                                                fontSize: '20px',
-                                                lineHeight: '100%',
-                                                wordWrap: 'wrap',
-                                                position: 'relative',
-                                                top: '15px',
-                                            }}>
-                                                {step.description}
-                                            </p>
-                                        }
-                                    >
-                                        <h3>
-                                            {step.heading}
-                                        </h3>
-                                    </StepLabel>
-                                </Step>
-                            ))}
-                        </Stepper>
-                    </Stack>
+                    {/* <StepperProgressBar steps={steps} /> */}
+                    {/* <Stack */}
+                    {/* // maxHeight={'900px'} */}
+                    {/* // width={'100%'} */}
+                    {/* > */}
+                    <Stepper activeStep={6} orientation="vertical">
+                        {steps.map((step, index) => (
+                            <Step key={index}>
+                                <StepLabel
+                                    optional={
+                                        <p style={{
+                                            margin: '15px 0 20px',
+                                            fontSize: '20px',
+                                            lineHeight: '100%',
+                                            wordWrap: 'wrap',
+                                            width: '450px',
+                                            position: 'relative',
+                                            top: '15px',
+                                        }}>
+                                            {step.description}
+                                        </p>
+                                    }
+                                >
+                                    <h3>
+                                        {step.heading}
+                                    </h3>
+                                </StepLabel>
+                            </Step>
+                        ))}
+                    </Stepper>
+                    {/* </Stack> */}
                 </Stack>
             </Stack >
 
