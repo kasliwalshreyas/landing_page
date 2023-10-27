@@ -230,6 +230,9 @@ const WorkWithUsFeature = () => {
                         className="pretty-scrollbar"
                         padding={'10px 100px 100px 0px'}
                         spacing={5}
+                        width={'calc(100% - 600px - 100px)'}
+                        alignItems={'flex-end'}
+
                     >
                         {
                             data.map((item, index) => {
