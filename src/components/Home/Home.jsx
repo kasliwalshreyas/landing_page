@@ -107,7 +107,7 @@ const Home = () => {
                         transition={{
                             type: "spring",
                             ease: 'easeInOut',
-                            delay: 1,
+                            // delay: 1,
                             // damping: 13,
                             velocity: 0.01,
                             duration: 2,
@@ -220,7 +220,7 @@ const Home = () => {
                             type: "spring",
                             ease: 'easeInOut',
                             // damping: 13,
-                            delay: 1,
+                            // delay: 1,
                             velocity: 1,
                             duration: 2,
                         }}
